@@ -1,0 +1,24 @@
+{
+  "name": "vue-bulma-modal",
+  "version": "1.0.0",
+  "description": "Modal component for Vue Bulma",
+  "main": "src/index.js",
+  "devDependencies": {
+    "bulma": "0.1.0",
+    "vue": "1.0.26"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/vue-bulma/modal.git",
+  "keywords": [
+    "vue",
+    "bulma",
+    "vue-bulma",
+    "vue-bulma-component",
+    "vue-bulma-modal",
+    "modal"
+  ],
+  "author": "Fangdun Cai <cfddream@gmail.com>",
+  "license": "MIT"
+}
