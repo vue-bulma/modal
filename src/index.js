@@ -7,5 +7,5 @@ export {
   BaseModal,
   CardModal,
   ImageModal,
-  Modal,
+  Modal
 }
