@@ -1,14 +1,13 @@
 {
   "name": "vue-bulma-modal",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Modal component for Vue Bulma",
   "main": "src/index.js",
   "devDependencies": {
     "bulma": "0.1.0",
     "vue": "1.0.26"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "repository": "git+https://github.com/vue-bulma/modal.git",
   "keywords": [
     "vue",
