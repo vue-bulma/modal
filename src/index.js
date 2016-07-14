@@ -1,11 +1,11 @@
+import Modal from './Modal'
 import BaseModal from './BaseModal'
 import CardModal from './CardModal'
 import ImageModal from './ImageModal'
-import Modal from './Modal'
 
 export {
+  Modal,
   BaseModal,
   CardModal,
-  ImageModal,
-  Modal
+  ImageModal
 }
