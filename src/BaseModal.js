@@ -2,46 +2,60 @@
 export default {
 
   props: {
-    card: {
-      type: Boolean,
-      default: false
-    },
-    visible: {
-      type: Boolean,
-      default: false
-    },
-    closable: {
-      type: Boolean,
-      default: false
-    },
+    card: Boolean,
+    visible: Boolean,
+    closable: Boolean,
     transition: {
       type: String,
       default: 'fade'
     }
   },
 
-  compiled () {
+  data () {
+    return {
+      show: this.visible
+    }
+  },
+
+  mounted () {
     this.$nextTick(() => {
-      this.$appendTo(document.body)
+      document.body.appendChild(this.$el)
     })
   },
 
+  destroyed () {
+    this.$el.remove()
+  },
+
   methods: {
+    afterLeave () {
+      this.$destroy()
+    },
+
     active () {
-      this.$el.classList.add('fadeIn')
-      this.visible = true
+      this.show = true
     },
 
     deactive () {
-      this.visible = false
+      this.show = false
     },
 
     close () {
-      this.$destroy(true)
+      this.deactive()
     },
 
     open () {
       this.active()
+    }
+  },
+
+  computed: {
+    enterClass () {
+      return `${this.transition}In`
+    },
+
+    leaveClass () {
+      return `${this.transition}Out`
     }
   }
 
