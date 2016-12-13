@@ -11,41 +11,15 @@ export default {
     }
   },
 
-  data () {
-    return {
-      show: this.visible
-    }
-  },
-
   mounted () {
     this.$nextTick(() => {
       document.body.appendChild(this.$el)
     })
   },
 
-  destroyed () {
-    this.$el.remove()
-  },
-
   methods: {
-    afterLeave () {
-      this.$destroy()
-    },
-
-    active () {
-      this.show = true
-    },
-
-    deactive () {
-      this.show = false
-    },
-
     close () {
-      this.deactive()
-    },
-
-    open () {
-      this.active()
+      this.$emit('close')
     }
   },
 
