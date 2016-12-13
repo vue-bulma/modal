@@ -6,9 +6,8 @@
     :appear-active-class="enterClass"
     :enter-active-class="enterClass"
     :leave-active-class="leaveClass"
-    @after-leave="afterLeave"
   >
-    <div :class="['modal', 'animated', show ? 'is-active' : '']" v-if="show">
+    <div :class="['modal', 'animated', visible ? 'is-active' : '']" v-if="visible">
       <div class="modal-background" @click="close"></div>
       <div class="modal-container">
         <div class="modal-content">
