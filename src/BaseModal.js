@@ -18,18 +18,16 @@ export default {
   },
 
   mounted () {
-    this.$nextTick(() => {
-      document.body.appendChild(this.$el)
-    })
-  },
-
-  destroyed () {
-    this.$el.remove()
+    document.body.appendChild(this.$el)
   },
 
   methods: {
+    beforeEnter () {
+      this.$emit('open')
+    },
+
     afterLeave () {
-      this.$destroy()
+      this.$emit('close')
     },
 
     active () {
@@ -38,14 +36,6 @@ export default {
 
     deactive () {
       this.show = false
-    },
-
-    close () {
-      this.deactive()
-    },
-
-    open () {
-      this.active()
     }
   },
 
@@ -56,6 +46,12 @@ export default {
 
     leaveClass () {
       return `${this.transition}Out`
+    }
+  },
+
+  watch: {
+    visible (val) {
+      this.show = val
     }
   }
 

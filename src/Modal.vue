@@ -6,16 +6,17 @@
     :appear-active-class="enterClass"
     :enter-active-class="enterClass"
     :leave-active-class="leaveClass"
-    @after-leave="afterLeave"
+    @beforeEnter="beforeEnter"
+    @afterLeave="afterLeave"
   >
-    <div :class="['modal', 'animated', show ? 'is-active' : '']" v-if="show">
-      <div class="modal-background" @click="close"></div>
+    <div :class="classes" v-if="show">
+      <div class="modal-background" @click="deactive"></div>
       <div class="modal-container">
         <div class="modal-content">
           <slot></slot>
         </div>
       </div>
-      <button class="modal-close" @click="close" v-if="closable"></button>
+      <button class="modal-close" @click="deactive" v-if="closable"></button>
     </div>
   </transition>
 </template>
@@ -30,6 +31,12 @@ export default {
     closable: {
       type: Boolean,
       default: true
+    }
+  },
+
+  computed: {
+    classes () {
+      return ['modal', 'animated', 'is-active']
     }
   }
 }

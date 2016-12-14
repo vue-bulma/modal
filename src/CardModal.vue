@@ -6,14 +6,15 @@
     :appear-active-class="enterClass"
     :enter-active-class="enterClass"
     :leave-active-class="leaveClass"
-    @after-leave="afterLeave"
+    @beforeEnter="beforeEnter"
+    @afterLeave="afterLeave"
   >
-    <div :class="['modal', 'animated', show ? 'is-active' : '']" v-if="show">
-      <div class="modal-background" @click="close"></div>
+    <div :class="classes" v-if="show">
+      <div class="modal-background" @click="deactive"></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">{{ title }}</p>
-          <button class="delete" @click="close"></button>
+          <button class="delete" @click="deactive"></button>
         </header>
         <section class="modal-card-body">
           <slot></slot>
@@ -47,14 +48,20 @@ export default {
     }
   },
 
+  computed: {
+    classes () {
+      return ['modal', 'animated', 'is-active']
+    }
+  },
+
   methods: {
     ok () {
-      this.close()
+      this.$emit('ok')
     },
 
     cancel () {
-      this.close()
-    }
+      this.$emit('cancel')
+    },
   }
 }
 </script>
