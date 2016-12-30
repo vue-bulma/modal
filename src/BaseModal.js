@@ -35,7 +35,8 @@ export default {
     },
 
     deactive () {
-      this.show = false
+      if(this.closable)
+        this.show = false
     }
   },
 
