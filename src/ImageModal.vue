@@ -7,6 +7,8 @@
     :enter-active-class="enterClass"
     :leave-active-class="leaveClass"
     @beforeEnter="beforeEnter"
+    @afterEnter="afterEnter"
+    @beforeLeave="beforeLeave"
     @afterLeave="afterLeave"
   >
     <div :class="classes" v-if="show">
