@@ -25,7 +25,15 @@ export default {
     beforeEnter () {
       this.$emit('open')
     },
+    
+    afterEnter () {
+      this.$emit('opened')
+    },
 
+    beforeLeave () {
+      this.$emit('before-close')
+    },
+    
     afterLeave () {
       this.$emit('close')
     },
