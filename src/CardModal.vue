@@ -15,15 +15,14 @@
       <div class="modal-background" @click="deactive"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">{{ title }}</p>
+          <slot name="header"></slot>
           <button class="delete" @click="deactive" v-if="closable"></button>
         </header>
         <section class="modal-card-body">
-          <slot></slot>
+          <slot name="body"></slot>
         </section>
         <footer class="modal-card-foot">
-          <a class="button is-primary" @click="ok">{{ okText }}</a>
-          <a class="button" @click="cancel">{{ cancelText }}</a>
+          <slot name="footer"></slot>
         </footer>
       </div>
     </div>
