@@ -16,18 +16,18 @@
       <div class="modal-card">
         <header class="modal-card-head">
           <slot name="header">
-	    <p class="modal-card-title">{{ title }}</p>
-	  </slot>
+            <p class="modal-card-title">{{ title }}</p>
+          </slot>
           <button class="delete" @click="deactive" v-if="closable"></button>
         </header>
         <section class="modal-card-body">
-          <slot name="body"></slot>
+          <slot></slot>
         </section>
         <footer class="modal-card-foot">
           <slot name="footer">
-	    <a class="button is-primary" @click="ok">{{ okText }}</a>
-	    <a class="button" @click="cancel">{{ cancelText }}</a>
-	  </slot>
+            <a class="button is-primary" @click="ok">{{ okText }}</a>
+            <a class="button" @click="cancel">{{ cancelText }}</a>
+          </slot>
         </footer>
       </div>
     </div>
