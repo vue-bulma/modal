@@ -8,6 +8,10 @@ export default {
     transition: {
       type: String,
       default: 'fade'
+    },
+    transitionDirection: {
+      type: String,
+      default: ''
     }
   },
 
@@ -50,11 +54,11 @@ export default {
 
   computed: {
     enterClass () {
-      return `${this.transition}In`
+      return `${this.transition}In${this.transitionDirection}`
     },
 
     leaveClass () {
-      return `${this.transition}Out`
+      return `${this.transition}Out${this.transitionDirection}`
     }
   },
 
