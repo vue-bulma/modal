@@ -1,6 +1,6 @@
 {
   "name": "vue-bulma-modal",
-  "version": "1.0.2222222222222222222222",
+  "version": "1.0.2",
   "description": "Modal component for Vue Bulma",
   "main": "src/index.js",
   "peerDependencies": {
