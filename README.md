@@ -25,6 +25,14 @@ $ npm install vue-bulma-modal --save
         <img :src="src" height="120" alt="Vue Admin">
       </div>
     </card-modal>
+    <card-modal :visible="true" :title="title" transition="zoom">
+      <div class="content has-text-centered">
+        <img :src="src" height="120" alt="Vue Admin">
+      </div>
+      <div slot="footer">
+        Custom footer <a href="">content</a>
+      </div>
+    </card-modal>
   </div>
 </template>
 

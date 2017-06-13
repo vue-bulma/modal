@@ -22,8 +22,10 @@
           <slot></slot>
         </section>
         <footer class="modal-card-foot">
-          <a class="button is-primary" @click="ok">{{ okText }}</a>
-          <a class="button" @click="cancel">{{ cancelText }}</a>
+          <slot name="footer">
+            <a class="button is-primary" @click="ok">{{ okText }}</a>
+            <a class="button" @click="cancel">{{ cancelText }}</a>
+          </slot>
         </footer>
       </div>
     </div>
