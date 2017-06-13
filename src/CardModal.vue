@@ -66,6 +66,14 @@ export default {
     cancel () {
       this.$emit('cancel')
     },
+
+    afterEnter () {
+      this.$emit('afterEnter')
+    },
+
+    beforeLeave () {
+      this.$emit('beforeLeave')
+    },
   }
 }
 </script>
