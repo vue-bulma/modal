@@ -19,13 +19,13 @@
           <button class="delete" @click="deactive"></button>
         </header>
         <section class="modal-card-body">
-          <slot></slot>
+          <slot>{{content}}<div v-html="contentHtml"></div></slot>
         </section>
         <footer class="modal-card-foot">
-          <slot name="footer">
+          <!--<slot name="footer">-->
             <a class="button is-primary" @click="ok">{{ okText }}</a>
             <a class="button" @click="cancel">{{ cancelText }}</a>
-          </slot>
+          <!--</slot>-->
         </footer>
       </div>
     </div>
@@ -49,6 +49,12 @@ export default {
     cancelText: {
       type: String,
       default: 'Cancel'
+    },
+    content: {
+      type: String
+    },
+    contentHtml: {
+      type: String
     }
   },
 
