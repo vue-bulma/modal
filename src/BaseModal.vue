@@ -1,4 +1,4 @@
-
+<script>
 export default {
 
   props: {
@@ -65,3 +65,4 @@ export default {
   }
 
 }
+</script>
