@@ -8,7 +8,8 @@ export default {
     transition: {
       type: String,
       default: 'fade'
-    }
+    },
+    lockBackground: Boolean
   },
 
   data () {
@@ -25,15 +26,7 @@ export default {
     beforeEnter () {
       this.$emit('open')
     },
-    
-    afterEnter () {
-      this.$emit('opened')
-    },
 
-    beforeLeave () {
-      this.$emit('before-close')
-    },
-    
     afterLeave () {
       this.$emit('close')
     },
@@ -43,8 +36,13 @@ export default {
     },
 
     deactive () {
-      if(this.closable)
-        this.show = false
+      this.show = false
+    },
+
+    clickBackground() {
+      if (!this.lockBackground) {
+        this.deactive()
+      }
     }
   },
 
