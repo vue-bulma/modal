@@ -37,7 +37,7 @@ export default {
   },
 
   computed: {
-    classes () {
+    classes() {
       return ['modal', 'animated', 'is-active']
     }
   }

@@ -15,16 +15,20 @@
       <div class="modal-background" @click="deactive"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">{{ title }}</p>
-          <button class="delete" @click="deactive"></button>
+          <slot name="modal-card-title">
+            <p class="modal-card-title">{{ title }}</p>
+          </slot>
+          <button class="delete" @click="deactive" v-if="closable"></button>
         </header>
         <section class="modal-card-body">
           <slot></slot>
         </section>
-        <footer class="modal-card-foot">
-          <a class="button is-primary" @click="ok">{{ okText }}</a>
-          <a class="button" @click="cancel">{{ cancelText }}</a>
-        </footer>
+        <slot name="footer">
+          <footer class="modal-card-foot">
+              <a class="button is-primary" :class="okButtonClass" @click="ok">{{ okText }}</a>
+              <a class="button" :class="cancelButtonClass" @click="cancel">{{ cancelText }}</a>
+          </footer>
+        </slot>
       </div>
     </div>
   </transition>
@@ -47,23 +51,39 @@ export default {
     cancelText: {
       type: String,
       default: 'Cancel'
+    },
+    okButtonClass: {
+      type: Object,
+      default() {
+        return {
+          'is-small': true
+        }
+      }
+    },
+    cancelButtonClass: {
+      type: Object,
+      default() {
+        return {
+          'is-small': true
+        }
+      }
     }
   },
 
   computed: {
-    classes () {
+    classes() {
       return ['modal', 'animated', 'is-active']
     }
   },
 
   methods: {
-    ok () {
+    ok() {
       this.$emit('ok')
     },
 
-    cancel () {
+    cancel() {
       this.$emit('cancel')
-    },
+    }
   }
 }
 </script>

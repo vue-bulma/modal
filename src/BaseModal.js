@@ -1,6 +1,4 @@
-
 export default {
-
   props: {
     card: Boolean,
     visible: Boolean,
@@ -11,57 +9,55 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       show: this.visible
     }
   },
 
-  mounted () {
+  mounted() {
     document.body.appendChild(this.$el)
   },
 
   methods: {
-    beforeEnter () {
+    beforeEnter() {
       this.$emit('open')
     },
-    
-    afterEnter () {
+
+    afterEnter() {
       this.$emit('opened')
     },
 
-    beforeLeave () {
+    beforeLeave() {
       this.$emit('before-close')
     },
-    
-    afterLeave () {
+
+    afterLeave() {
       this.$emit('close')
     },
 
-    active () {
+    active() {
       this.show = true
     },
 
-    deactive () {
-      if(this.closable)
-        this.show = false
+    deactive() {
+      if (this.closable) this.show = false
     }
   },
 
   computed: {
-    enterClass () {
+    enterClass() {
       return `${this.transition}In`
     },
 
-    leaveClass () {
+    leaveClass() {
       return `${this.transition}Out`
     }
   },
 
   watch: {
-    visible (val) {
+    visible(val) {
       this.show = val
     }
   }
-
 }
