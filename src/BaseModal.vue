@@ -1,3 +1,4 @@
+<script>
 export default {
   props: {
     card: Boolean,
@@ -61,3 +62,4 @@ export default {
     }
   }
 }
+</script>
