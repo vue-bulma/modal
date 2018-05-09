@@ -13,10 +13,8 @@
   >
     <div :class="classes" v-if="show">
       <div class="modal-background" @click="deactive"></div>
-      <div class="modal-container">
-        <div class="modal-content">
-          <slot></slot>
-        </div>
+      <div class="modal-content">
+        <slot></slot>
       </div>
       <button class="modal-close" @click="deactive" v-if="closable"></button>
     </div>
